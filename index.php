@@ -1,3 +1,7 @@
+<?php
+    include 'includes/conexion.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +10,6 @@
     <title>Proyecto Lenguajes</title>
 </head>
 <body>
-    <h1>Proyecto Lenguajes</h1>
+
 </body>
 </html>
