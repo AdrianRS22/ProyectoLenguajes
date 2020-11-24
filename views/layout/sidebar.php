@@ -5,16 +5,16 @@
             <a href="#"><span class="fa fa-home"></span> Home</a>
         </li>
         <li>
-            <a href="#"><span class="fa fa-user"></span> About</a>
+            <a href="#"><span class="fa fa-user"></span> Clientes</a>
         </li>
         <li>
-            <a href="#"><span class="fa fa-sticky-note"></span> Blog</a>
+            <a href="#"><span class="fas fa-shopping-bag"></span> Artículos</a>
         </li>
         <li>
-            <a href="#"><span class="fa fa-cogs"></span> Services</a>
+            <a href="#"><span class="fa fa-tags"></span> Categorías</a>
         </li>
         <li>
-            <a href="#"><span class="fa fa-paper-plane"></span> Contacts</a>
+            <a href="#"><span class="fas fa-file-invoice-dollar"></i></span> Facturas</a>
         </li>
     </ul>
 
