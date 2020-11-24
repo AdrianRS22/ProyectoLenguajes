@@ -1,15 +1,40 @@
 <?php
-    include 'includes/conexion.php';
-?>
+require_once 'config/parameters.php';
+require_once 'autoload.php';
+require_once 'config/database.php';
+require_once 'views/layout/header.php';
+require_once 'views/layout/sidebar.php';
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Lenguajes</title>
-</head>
-<body>
+function mostrarError(){
+    $error = new errorController();
+    $error->index();
+}
 
-</body>
-</html>
+if(isset($_GET['controller'])){
+	$nombre_controlador = $_GET['controller'].'Controller';
+
+}elseif(!isset($_GET['controller']) && !isset($_GET['action'])){
+	$nombre_controlador = controller_default;
+	
+}else{
+	mostrarError();
+	exit();
+}
+
+if(class_exists($nombre_controlador)){	
+	$controlador = new $nombre_controlador();
+	
+	if(isset($_GET['action']) && method_exists($controlador, $_GET['action'])){
+		$action = $_GET['action'];
+		$controlador->$action();
+	}elseif(!isset($_GET['controller']) && !isset($_GET['action'])){
+		$action_default = action_default;
+		$controlador->$action_default();
+	}else{
+		mostrarError();
+	}
+}else{
+	mostrarError();
+}
+
+require_once 'views/layout/footer.php';
