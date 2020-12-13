@@ -3,6 +3,10 @@
     padding: 0px;
 }
 
+li{
+    list-style: none;
+}
+
 body{
     font-size: 20px;
     background: rgb(2,0,36);
