@@ -1,40 +1,47 @@
 <?php
-require_once 'autoload.php';
-require_once 'config/parameters.php';
-require_once 'config/database.php';
-require_once 'views/layout/header.php';
-require_once 'views/layout/sidebar.php';
+require_once 'includes/cabecera.php';
 
-function mostrarError(){
-    $error = new errorController();
-    $error->index();
-}
+?>
 
-if(isset($_GET['controller'])){
-	$nombre_controlador = $_GET['controller'].'Controller';
+<div class="container" id="contenido">
 
-}elseif(!isset($_GET['controller']) && !isset($_GET['action'])){
-	$nombre_controlador = controller_default;
-	
-}else{
-	mostrarError();
-	exit();
-}
+    <form id="formulario" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-sm-6 mt-2">
+                <div class="form-group">
+                    <label for="identificacionInputText">Identificación</label>
+                    <input type="text" class="form-control" name="identificacionInputText" id="identificacionInputText"
+                        required />
 
-if(class_exists($nombre_controlador)){	
-	$controlador = new $nombre_controlador();
-	
-	if(isset($_GET['action']) && method_exists($controlador, $_GET['action'])){
-		$action = $_GET['action'];
-		$controlador->$action();
-	}elseif(!isset($_GET['controller']) && !isset($_GET['action'])){
-		$action_default = action_default;
-		$controlador->$action_default();
-	}else{
-		mostrarError();
-	}
-}else{
-	mostrarError();
-}
+                </div>
+            </div>
+            <div class="col-sm-6 mt-5">
+                <input type="submit" class="form-control btn btn-primary" value="Consultar" />
+            </div>
+        </div>
+    </form>
 
-require_once 'views/layout/footer.php';
+    <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" class="form-control" id="nombreInputText" disabled />
+    </div>
+
+    <div class="form-group">
+        <label>Moroso</label>
+        <input type="text" class="form-control" id="morosoInputText" disabled />
+    </div>
+
+    <div class="form-group">
+        <label>Descripción</label>
+        <textarea class="form-control" id="descripcionInputText" rows="4" disabled></textarea>
+    </div>
+
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="assets/js/index.js"></script>
+</body>
+
+</html>
