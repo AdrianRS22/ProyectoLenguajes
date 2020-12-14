@@ -73,4 +73,10 @@ CREATE TABLE FacturaDetalle(
 	CONSTRAINT facturadetalle_articulo_fk FOREIGN KEY(id_articulo) REFERENCES Articulo(id_articulo)
 );
 
+CREATE TABLE BITACORA(
+ID_BITACORA NUMBER(11) not null,
+FECHA date default sysdate not null,
+ACCION VARCHAR2(101) not null,
+CONSTRAINT bitacora_pk PRIMARY KEY(ID_BITACORA)
+);
 
