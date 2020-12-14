@@ -41,6 +41,43 @@ $(document).ready(function () {
         $("#modalAddEditCliente").modal("show");
     });
 
+    $("#modalEditClienteSubmit").click(function (e) { 
+        e.preventDefault();
+
+        var id_cliente = $("#idCliente").val();
+        var nombre = $("#nombreCliente").val();
+        var apellido = $("#apellidoCliente").val();
+        var provincia = $("#provinciaCliente").val();
+        var direccion = $("#direccionCliente").val();
+        var correo = $("#correoCliente").val();
+        var telefono = $("#telefonoCliente").val();
+
+        $.ajax({
+            type: "POST",
+            url: "scripts/clientes/editCliente.php",
+            data: {
+                id_cliente: id_cliente,
+                nombre: nombre, 
+                apellido: apellido,
+                provincia: provincia,
+                direccion: direccion,
+                correo: correo,
+                telefono: telefono
+            },
+            success: function () {
+                swal({
+                    title: "Cliente actualizado",
+                    text: "El cliente ha sido actualizado exitosamente",
+                    icon: "success"
+                })
+                .then(() => {
+                    window.location.reload();
+                });
+            }
+        });
+    });
+
+
     $("#modalAddClienteSubmit").click(function (e) { 
         e.preventDefault();
 
@@ -109,6 +146,7 @@ function editarCliente(id_cliente){
 
             var decodedResponse = $.parseJSON(res);
 
+            $("#idCliente").val(id_cliente);
             $("#nombreCliente").val(decodedResponse.nombre);
             $("#apellidoCliente").val(decodedResponse.apellido);
             $("#provinciaCliente").val(decodedResponse.provincia);

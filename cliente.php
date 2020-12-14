@@ -23,7 +23,7 @@ require_once 'includes/cabecera.php';
                 </button>
             </div>
             <div class="modal-body">
-                <input type="hidden" id="idCategoria">
+                <input type="hidden" id="idCliente">
                 <div class="form-group">
                     <label>Nombre</label>
                     <input type="text" class="form-control" id="nombreCliente" placeholder="Nombre Cliente">
