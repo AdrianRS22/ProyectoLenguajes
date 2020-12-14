@@ -27,6 +27,34 @@ $(document).ready(function () {
             }
         ]
     });
+
+    $.ajax({
+        dataType: "json",
+        url: "scripts/categorias/obtenerCategorias.php",
+        data: {},
+        success: function (data) {
+            var html = "<select>";
+            html += "<option value=''></option>";
+            for(key in data) {
+                let nombreCategoria = data[key].NOMBRE;
+                html += "<option value='" + key + "'>" + nombreCategoria + "</option>";
+            }
+            html += "</select";
+            $('#categoriaArticulo').html(html);
+        }
+    });
+
+    $("#addArticulo").click(function (e) { 
+        e.preventDefault();
+
+        $("#modalAddEditArticuloTitle").html('Añadir Cliente');
+
+        $("#modalAddArticuloSubmit").removeClass('d-none').addClass('d-block');
+        $("#modalEditArticuloSubmit").removeClass('d-block').addClass('d-none');
+
+        $("#modalAddEditArticulo").modal("show");
+        
+    });
 });
 
 function editarArticuclo(id_articulo){
