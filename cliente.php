@@ -39,10 +39,6 @@ require_once 'includes/cabecera.php';
                     <input type="text" class="form-control" id="apellidoCliente" placeholder="Apellido Cliente">
                 </div>
                 <div class="form-group">
-                    <label>Apellido</label>
-                    <input type="text" class="form-control" id="apellidoCliente" placeholder="Apellido Cliente">
-                </div>
-                <div class="form-group">
                     <label>Provincia</label>
                     <select class="form-control" id="provinciaCliente"></select>
                 </div>
