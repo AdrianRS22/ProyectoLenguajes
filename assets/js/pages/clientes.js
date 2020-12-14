@@ -24,7 +24,7 @@ $(document).ready(function () {
                 targets: 6,
                 className: 'text-center',
                 render: function (data, type, fila) {
-                    return '<button class="btn btn-success" onclick="editarCliente(' + data +',\'' + fila.NOMBRE+ '\',\'' + fila.DESCRIPCION + '\')">Actualizar</button>';
+                    return '<button class="btn btn-success" onclick="editarCliente(' + data + ')">Actualizar</button>';
                 }
             }
         ]
@@ -91,7 +91,33 @@ $(document).ready(function () {
             $('#provinciaCliente').html(html);
         }
     });
-
-
-
 });
+
+function editarCliente(id_cliente){
+    $("#modalAddEditClienteTitle").html('Editar Cliente');
+
+    $("#modalAddClienteSubmit").removeClass('d-block').addClass('d-none');
+    $("#modalEditClienteSubmit").removeClass('d-none').addClass('d-block');
+
+    $.ajax({
+        type: "POST",
+        url: "scripts/clientes/obtenerClientePorId.php",
+        data: {
+            id_cliente: id_cliente
+        },
+        success: function (res) {
+
+            var decodedResponse = $.parseJSON(res);
+
+            $("#nombreCliente").val(decodedResponse.nombre);
+            $("#apellidoCliente").val(decodedResponse.apellido);
+            $("#provinciaCliente").val(decodedResponse.provincia);
+            $("#direccionCliente").val(decodedResponse.direccion);
+            $("#correoCliente").val(decodedResponse.correo);
+            $("#telefonoCliente").val(decodedResponse.telefono);
+
+            $("#modalAddEditCliente").modal("show");
+
+        }
+    });
+}
