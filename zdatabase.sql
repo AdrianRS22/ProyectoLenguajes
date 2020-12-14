@@ -13,40 +13,13 @@ TEMPORARY TABLESPACE TEMP_SUPERMERCADO;
 
 ALTER SESSION SET CURRENT_SCHEMA = SUPERMERCADO;
 
-CREATE TABLE Provincia(
-	id_provincia number(11) not null,
-	nombre varchar2(100) not null,
-	CONSTRAINT provincia_pk PRIMARY KEY(id_provincia)
-);
-
-CREATE TABLE Canton(
-	id_canton number(11) not null,
-	nombre varchar2(100) not null,
-	CONSTRAINT canton_pk PRIMARY KEY(id_canton)
-);
-
-CREATE TABLE Distrito(
-	id_distrito number(11) not null,
-	nombre varchar2(100) not null,
-	CONSTRAINT distrito_pk PRIMARY KEY(id_distrito)
-);
-
-CREATE TABLE Localizacion(
-	id_localizacion number(11) not null,
-	id_provincia number(11) not null,
-	id_canton number(11) not null,
-	id_distrito number(11) not null,
-	CONSTRAINT localization_pk PRIMARY KEY(id_localizacion),
-	CONSTRAINT localization_provincia_fk FOREIGN KEY(id_provincia) REFERENCES Provincia(id_provincia),
-	CONSTRAINT localization_canton_fk FOREIGN KEY(id_canton) REFERENCES Canton(id_canton),
-	CONSTRAINT localization_distrito_fk FOREIGN KEY(id_distrito) REFERENCES Distrito(id_distrito)
-);
-
 CREATE TABLE Cliente(
 	id_cliente number(11) not null,
-	id_localizacion number(11) not null,
 	nombre varchar2(100) not null,
 	apellido varchar2(100) not null,
+	provincia varchar2(100) not null,
+	canton varchar2(100) not null,
+	distrito varchar2(200) not null,
 	direccion varchar2(255) not null,
 	correo varchar2(100) not null,
 	telefono varchar2(10) not null,
