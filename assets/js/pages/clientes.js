@@ -4,7 +4,30 @@ $(document).ready(function () {
         searching: false,
         bInfo: false,
         paging: false,
-        orden: []
+        orden: [],
+        ajax: {
+            url: "scripts/clientes/obtenerClientes.php",
+            type: "GET",
+            dataSrc: ""
+        },
+        columns: [
+            { data: 'ID_CLIENTE', title: "Id" },
+            { data: 'NOMBRECOMPLETO', title: "Nombre Completo" },
+            { data: 'PROVINCIA', title: "Provincia" },
+            { data: 'DIRECCION', title: "Dirección" },
+            { data: 'CORREO', title: "Correo" },
+            { data: 'TELEFONO', title: "Teléfono" },
+            { data: 'ID_CLIENTE', title: 'Acción'}
+        ],
+        columnDefs: [
+            {
+                targets: 6,
+                className: 'text-center',
+                render: function (data, type, fila) {
+                    return '<button class="btn btn-success" onclick="editarCliente(' + data +',\'' + fila.NOMBRE+ '\',\'' + fila.DESCRIPCION + '\')">Actualizar</button>';
+                }
+            }
+        ]
     });
 
     $("#addCliente").click(function (e) { 

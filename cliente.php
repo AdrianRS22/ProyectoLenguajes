@@ -8,13 +8,7 @@ require_once 'includes/cabecera.php';
 
     <table id="tablaClientes" class="table" style="width:100%">
         <thead class="thead-dark">
-            <tr>
-                <th>Id</th>
-                <th>Nombre Completo</th>
-                <th>Dirección</th>
-                <th>Correo</th>
-                <th>Teléfono</th>
-            </tr>
+        
         </thead>
     </table>
 </div>
