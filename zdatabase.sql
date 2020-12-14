@@ -18,8 +18,6 @@ CREATE TABLE Cliente(
 	nombre varchar2(100) not null,
 	apellido varchar2(100) not null,
 	provincia varchar2(100) not null,
-	canton varchar2(100) not null,
-	distrito varchar2(200) not null,
 	direccion varchar2(255) not null,
 	correo varchar2(100) not null,
 	telefono varchar2(10) not null,
