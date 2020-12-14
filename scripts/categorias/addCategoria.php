@@ -11,4 +11,5 @@ if($_POST){
     $descripcion = $_POST['descripcion'];
 
     oci_execute($stmt);
+    oci_free_statement($stmt);
 }
