@@ -18,6 +18,40 @@ $(document).ready(function () {
         $("#modalAddEditCliente").modal("show");
     });
 
+    $("#modalAddClienteSubmit").click(function (e) { 
+        e.preventDefault();
+
+        var nombre = $("#nombreCliente").val();
+        var apellido = $("#apellidoCliente").val();
+        var provincia = $("#provinciaCliente").val();
+        var direccion = $("#direccionCliente").val();
+        var correo = $("#correoCliente").val();
+        var telefono = $("#telefonoCliente").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "scripts/clientes/addCliente.php",
+            data: {
+                nombre: nombre, 
+                apellido: apellido,
+                provincia: provincia,
+                direccion: direccion,
+                correo: correo,
+                telefono: telefono
+            },
+            success: function () {
+                swal({
+                    title: "Cliente añadido",
+                    text: "El cliente ha sido añadido exitosamente",
+                    icon: "success"
+                })
+                .then(() => {
+                    window.location.reload();
+                });
+            }
+        });
+    });
+
 
     $.ajax({
         dataType: "json",
@@ -34,5 +68,7 @@ $(document).ready(function () {
             $('#provinciaCliente').html(html);
         }
     });
+
+
 
 });

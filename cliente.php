@@ -48,7 +48,7 @@ require_once 'includes/cabecera.php';
                 </div>
                 <div class="form-group">
                     <label>Correo</label>
-                    <input type="email" class="form-control" id="nombreCliente" placeholder="Correo Cliente">
+                    <input type="email" class="form-control" id="correoCliente" placeholder="Correo Cliente">
                 </div>
                 <div class="form-group">
                     <label>Teléfono</label>
