@@ -12,6 +12,9 @@ $(document).ready(function () {
         
         $("#modalAddEditClienteTitle").html('Añadir Cliente');
 
+        $("#modalAddClienteSubmit").removeClass('d-none').addClass('d-block');
+        $("#modalEditClienteSubmit").removeClass('d-block').addClass('d-none');
+
         $("#modalAddEditCliente").modal("show");
     });
 
