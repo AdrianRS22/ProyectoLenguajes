@@ -1,5 +1,35 @@
 $(document).ready(function () {
-    
+
+    $("#tablaFacturas").DataTable({
+        searching: false,
+        bInfo: false,
+        paging: false,
+        orden: [],
+        ajax: {
+            url: "scripts/facturas/obtenerFacturas.php",
+            type: "GET",
+            dataSrc: ""
+        },
+        columns: [
+            { data: 'NUM_FACTURA', title: "Número Factura" },
+            { data: 'MODOPAGO', title: "Modo de Pago" },
+            { data: 'NOMBRECLIENTE', title: "Nombre Cliente" },
+            { data: 'IVA', title: "iva" },
+            { data: 'DESCUENTO', title: "descuento" },
+            { data: 'FECHA', title: "fecha" },
+            { data: 'NUM_FACTURA', title: 'Acción'}
+        ],
+        columnDefs: [
+            {
+                targets: 6,
+                className: 'text-center',
+                render: function (data, type, fila) {
+                    return '<button class="btn btn-info" onclick="verDetallesFactura(' + data + ')">Ver Detalles</button>';
+                }
+            }
+        ]
+    });
+
     $.ajax({
         dataType: "json",
         url: "scripts/clientes/obtenerClientes.php",
@@ -68,3 +98,7 @@ $(document).ready(function () {
     });
 
 });
+
+function verDetallesFactura(num_factura){
+    console.log(num_factura);
+}

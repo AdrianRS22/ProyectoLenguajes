@@ -6,6 +6,12 @@ require_once 'includes/cabecera.php';
 
 <div class="container" id="contenido">
     <button class="btn btn-lg btn-primary mb-3" id="comprarArticulo" data-toggle="modal" data-target="#modalCompra">Comprar</button>
+
+    <table id="tablaFacturas" class="table" style="width:100%">
+        <thead class="thead-dark">
+        
+        </thead>
+    </table>
 </div>
 
 <div class="modal" tabindex="-1" role="dialog" id="modalCompra">
