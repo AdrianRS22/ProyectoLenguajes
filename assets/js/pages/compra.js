@@ -22,15 +22,16 @@ $(document).ready(function () {
         url: "scripts/articulos/obtenerArticulos.php",
         data: {},
         success: function (data) {
-            var html = "<select>";
-            html += "<option value=''></option>";
+            var html = "<select class='selectpicker' multiple>";
+            html += "<option value='' disabled></option>";
             for(key in data) {
                 let idArticulo = data[key].ID_ARTICULO;
                 let nombreArticulo = data[key].NOMBRE;
                 html += "<option value='" + idArticulo + "'>" + nombreArticulo + "</option>";
             }
-            html += "</select";
+            html += "</select>";
             $('#articuloCompra').html(html);
+            $("#articuloCompra").selectpicker('refresh');
         }
     });
 

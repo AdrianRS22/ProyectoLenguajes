@@ -14,6 +14,7 @@
 
     <title>Proyecto Lenguajes</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min">
     <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>

@@ -25,7 +25,7 @@ require_once 'includes/cabecera.php';
                     </div>
                     <div class="form-group">
                         <label>Artículo</label>
-                        <select class="form-control" id="articuloCompra"></select>
+                        <select class="form-control selectpicker" id="articuloCompra" multiple></select>
                     </div>
                     <div class="form-group">
                         <label>Modo de Pago</label>
