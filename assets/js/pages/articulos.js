@@ -56,6 +56,38 @@ $(document).ready(function () {
         $("#modalAddEditArticulo").modal("show");
         
     });
+
+    $("#modalEditArticuloSubmit").click(function (e) { 
+        e.preventDefault();
+        
+        var id_articulo = $("#idArticulo").val();
+        var id_categoria = $("#categoriaArticulo").val();
+        var nombre = $("#nombreArticulo").val();
+        var precio = $("#precioArticulo").val();
+        var codigo_cabys = $("#codigoCabysArticulo").val();
+
+        $.ajax({
+            type: "POST",
+            url: "scripts/articulos/editArticulo.php",
+            data: {
+                id_articulo: id_articulo,
+                id_categoria: id_categoria,
+                nombre: nombre,
+                precio: precio,
+                codigo_cabys: codigo_cabys
+            },
+            success: function () {
+                swal({
+                    title: "Artículo añadido",
+                    text: "El artículo ha sido añadido exitosamente",
+                    icon: "success"
+                })
+                .then(() => {
+                    window.location.reload();
+                });
+            }
+        });
+    });
 });
 
 function editarArticulo(id_articulo){
