@@ -1,6 +1,7 @@
 <?php
 require_once 'includes/cabecera.php';
 
+
 ?>
 
 <div class="container" id="contenido">
@@ -16,20 +17,20 @@ require_once 'includes/cabecera.php';
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form>
+            <form id="modalCompraFormulario">
                 <div class="modal-body">
                     <input type="hidden" id="idCliente">
                     <div class="form-group">
                         <label>Cliente</label>
-                        <select class="form-control" id="clienteCompra"></select>
+                        <select class="form-control" name="cliente" id="clienteCompra"></select>
                     </div>
                     <div class="form-group">
                         <label>Artículo</label>
-                        <select class="form-control selectpicker" id="articuloCompra" multiple></select>
+                        <select class="form-control selectpicker" name="articulos[]" id="articuloCompra" multiple></select>
                     </div>
                     <div class="form-group">
                         <label>Modo de Pago</label>
-                        <select class="form-control" id="modoPagoCompra"></select>
+                        <select class="form-control" name="modopago" id="modoPagoCompra"></select>
                     </div>
                 </div>
                 <div class="modal-footer">

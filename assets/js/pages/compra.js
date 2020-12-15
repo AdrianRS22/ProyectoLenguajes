@@ -52,4 +52,19 @@ $(document).ready(function () {
         }
     });
 
+    $("#modalCompraFormulario").on('submit', function (e) {
+        e.preventDefault();
+
+        var datosFormulario = $(this).serializeArray();
+
+        $.ajax({
+            type: "POST",
+            url: "scripts/articulos/comprarArticulo.php",
+            data: datosFormulario,
+            success: function () {
+
+            }
+        });
+    });
+
 });
