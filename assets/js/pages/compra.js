@@ -17,11 +17,13 @@ $(document).ready(function () {
             { data: 'IVA', title: "iva" },
             { data: 'DESCUENTO', title: "descuento" },
             { data: 'FECHA', title: "fecha" },
+            { data: 'SUBTOTAL', title: "subtotal" },
+            { data: 'TOTAL', title: "total" },
             { data: 'NUM_FACTURA', title: 'Acción'}
         ],
         columnDefs: [
             {
-                targets: 6,
+                targets: 8,
                 className: 'text-center',
                 render: function (data, type, fila) {
                     return '<a class="btn btn-info" href="detallefactura.php?num_factura=' + data + '">Ver Detalles</a>';
@@ -92,7 +94,14 @@ $(document).ready(function () {
             url: "scripts/articulos/comprarArticulo.php",
             data: datosFormulario,
             success: function () {
-
+                swal({
+                    title: "Articulos comprados",
+                    text: "Se han comprado los articulos seleccionados",
+                    icon: "success"
+                })
+                .then(() => {
+                    window.location.reload();
+                });
             }
         });
     });
