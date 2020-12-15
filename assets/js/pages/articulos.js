@@ -36,8 +36,9 @@ $(document).ready(function () {
             var html = "<select>";
             html += "<option value=''></option>";
             for(key in data) {
+                let idCategoria = data[key].ID_CATEGORIA;
                 let nombreCategoria = data[key].NOMBRE;
-                html += "<option value='" + key + "'>" + nombreCategoria + "</option>";
+                html += "<option value='" + idCategoria + "'>" + nombreCategoria + "</option>";
             }
             html += "</select";
             $('#categoriaArticulo').html(html);
@@ -47,7 +48,7 @@ $(document).ready(function () {
     $("#addArticulo").click(function (e) { 
         e.preventDefault();
 
-        $("#modalAddEditArticuloTitle").html('Añadir Cliente');
+        $("#modalAddEditArticuloTitle").html('Añadir Artículo');
 
         $("#modalAddArticuloSubmit").removeClass('d-none').addClass('d-block');
         $("#modalEditArticuloSubmit").removeClass('d-block').addClass('d-none');
@@ -57,6 +58,29 @@ $(document).ready(function () {
     });
 });
 
-function editarArticuclo(id_articulo){
-    console.log(id_articulo);
+function editarArticulo(id_articulo){
+    $("#modalAddEditArticuloTitle").html('Editar Artículo');
+
+    $("#modalAddArticuloSubmit").removeClass('d-block').addClass('d-none');
+    $("#modalEditArticuloSubmit").removeClass('d-none').addClass('d-block');
+
+    $.ajax({
+        type: "GET",
+        url: "scripts/articulos/obtenerArticuloPorId.php",
+        data: {
+            id_articulo: id_articulo
+        },
+        success: function (res) {
+
+            var decodedResponse = $.parseJSON(res);
+
+            $("#idArticulo").val(id_articulo);
+            $("#categoriaArticulo").val(decodedResponse.id_categoria);
+            $("#nombreArticulo").val(decodedResponse.nombre);
+            $("#precioArticulo").val(decodedResponse.precio);
+            $("#codigoCabysArticulo").val(decodedResponse.codigo_cabys);
+
+            $("#modalAddEditArticulo").modal("show");
+        }
+    });
 }

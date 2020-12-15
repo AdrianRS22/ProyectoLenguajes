@@ -137,7 +137,7 @@ function editarCliente(id_cliente){
     $("#modalEditClienteSubmit").removeClass('d-none').addClass('d-block');
 
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "scripts/clientes/obtenerClientePorId.php",
         data: {
             id_cliente: id_cliente

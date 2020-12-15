@@ -3,9 +3,7 @@ include '../../includes/conexion.php';
 
 $cliente = [];
 
-$_GET['id_cliente'] = 1;
-
-if($_GET){
+if(isset($_GET)){
     $consulta = "BEGIN FETCHCLIENTE(:id_cliente, :nombre, :apellido, :provincia, :direccion, :correo, :telefono); END;";
 
     $stmt = oci_parse($db, $consulta);
