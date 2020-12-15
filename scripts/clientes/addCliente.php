@@ -1,7 +1,7 @@
 <?php
 include '../../includes/conexion.php';
 
-if($_POST){
+if(isset($_POST)){
 
     $consulta = "BEGIN CLIENTES.INSERTAR(
     :nombre, :apellido, :provincia, :direccion, :correo, :telefono

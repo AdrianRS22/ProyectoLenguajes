@@ -1,7 +1,7 @@
 <?php
 include '../../includes/conexion.php';
 
-if($_POST){
+if(isset($_POST)){
     $stmt = oci_parse($db, "BEGIN CLIENTES.ACTUALIZAR(:id, :nombre, :apellido, :provincia, :direccion, :correo, :telefono); END;");
 
     oci_bind_by_name($stmt, ':id', $id, 11);

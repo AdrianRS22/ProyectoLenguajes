@@ -57,6 +57,36 @@ $(document).ready(function () {
         
     });
 
+    $("#modalAddArticuloSubmit").click(function (e) { 
+        e.preventDefault();
+
+        var id_categoria = $("#categoriaArticulo").val();
+        var nombre = $("#nombreArticulo").val();
+        var precio = $("#precioArticulo").val();
+        var codigo_cabys = $("#codigoCabysArticulo").val();
+
+        $.ajax({
+            type: "POST",
+            url: "scripts/articulos/addArticulo.php",
+            data: {
+                id_categoria: id_categoria,
+                nombre: nombre,
+                precio: precio,
+                codigo_cabys: codigo_cabys
+            },
+            success: function () {
+                swal({
+                    title: "Artículo añadido",
+                    text: "El artículo ha sido añadido exitosamente",
+                    icon: "success"
+                })
+                .then(() => {
+                    window.location.reload();
+                });
+            }
+        });
+    });
+
     $("#modalEditArticuloSubmit").click(function (e) { 
         e.preventDefault();
         
@@ -78,8 +108,8 @@ $(document).ready(function () {
             },
             success: function () {
                 swal({
-                    title: "Artículo añadido",
-                    text: "El artículo ha sido añadido exitosamente",
+                    title: "Artículo editado",
+                    text: "El artículo ha sido editado exitosamente",
                     icon: "success"
                 })
                 .then(() => {

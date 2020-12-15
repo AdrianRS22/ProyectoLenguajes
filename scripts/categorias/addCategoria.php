@@ -1,7 +1,7 @@
 <?php
 include '../../includes/conexion.php';
 
-if($_POST){
+if(isset($_POST)){
     $stmt = oci_parse($db, "BEGIN CATEGORIAS.CREAR(:nombre, :desc); END;");
 
     oci_bind_by_name($stmt, ':nombre', $nombre, 100);
