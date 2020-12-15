@@ -24,7 +24,7 @@ $(document).ready(function () {
                 targets: 6,
                 className: 'text-center',
                 render: function (data, type, fila) {
-                    return '<button class="btn btn-info" onclick="verDetallesFactura(' + data + ')">Ver Detalles</button>';
+                    return '<a class="btn btn-info" href="detallefactura.php?num_factura=' + data + '">Ver Detalles</a>';
                 }
             }
         ]
@@ -98,7 +98,3 @@ $(document).ready(function () {
     });
 
 });
-
-function verDetallesFactura(num_factura){
-    console.log(num_factura);
-}
